@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//girilen sayıya kadar olan sayıların toplamının süresini hesaplayan program register ve normal süreleri hesaplayan(register daha hızlandırıyor.)
+
+int main(int argc, char *argv[]) {
+	clock_t basla,basla2,bitis,bitis2;
+	basla=clock();
+	register int i;
+    int a,j,toplam2,x,toplam;
+	
+	printf("bir sayi giriniz:");
+	scanf("%d",&a);
+    x=a;
+	for(i=0;i<=x;i++){
+		toplam+=i;	
+	}
+		bitis=clock();
+        CLOCKS_PER_SEC;
+				printf("register %2.f saniye surdu.\n",(double)(bitis-basla));
+		
+basla2=clock();
+		for(j=0;j<a;j++) {
+			toplam+=j;
+	}
+		bitis2=clock();
+		CLOCKS_PER_SEC;
+				printf("normali %2.f saniye surdu.\n",(double)(bitis2-basla));
+		
+}
