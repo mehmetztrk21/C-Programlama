@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+char *name;
+name=(char*)malloc(sizeof(char)*81);  //bellekte 81 karakterlik bir alan ayırdık.
+scanf("%s", name);
+printf("Your name: %s\n",name);
+
+free(name); // bellekten kaldırma- deallocate name
+
+//malloc kullanımı: bellekten yer ayırır. free ile de program çalıştıktan sonra o yeri boşaltırız.
+
+	return 0;
+}
