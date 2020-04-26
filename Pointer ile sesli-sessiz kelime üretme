@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//girilen sayı kadar bir sesli bir sessiz harf ile kelime üreten program
+
+void fonk(int *p){
+	int adet=0;
+		char dizi1[5]={'a','e','i','u','o'};
+		char dizi2[5]={'b','k','d','f','g'};
+		char newdizi[256];
+srand(time(NULL));
+while(adet<*p){
+	if(adet%2==0){     //sesli-sessiz diye gitmesi için if else yaptık.
+		 newdizi[adet]=dizi1[rand()%5];   //0-5 arasında dizi1 in herhangi bir degerini atıyor.
+	printf("%c ",newdizi[adet]);
+	}
+	else{
+	 newdizi[adet]=dizi2[rand()%5];
+	printf("%c ",newdizi[adet]);
+	}
+	adet++;
+}
+}
+
+
+
+int main(int argc, char *argv[]) {
+	int x,*xp;
+	printf("bir deger gir: ");
+	scanf("%d",&x);
+	xp=&x;
+	
+	fonk(xp);
+	
+}
