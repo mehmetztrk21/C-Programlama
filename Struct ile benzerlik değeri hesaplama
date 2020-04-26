@@ -1,0 +1,145 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+struct Kelime{
+	char kelime[20];
+	int sesli;
+	int sessiz;
+	int uzunluk;
+};
+
+
+
+void hesaplama(struct Kelime *veri,int len);
+void giris(struct Kelime *veri,int len);
+void yazdir(struct Kelime *veri ,int len);
+void benzerlik(struct Kelime *veri,int len);
+
+
+
+int main(int argc, char *argv[]) {
+			
+	int i;
+	struct Kelime liste[15];
+	giris(&liste[0],15);
+	printf("************************************************************************************\n");
+	hesaplama(&liste[0],15);
+	yazdir(&liste[0],15);
+	printf("************************************************************************************\n");
+	benzerlik(&liste[0],15);
+	printf("************************************************************************************\n");
+
+	return 0;
+}
+
+
+
+
+
+void giris(struct Kelime *veri,int len){
+		int i;
+		for(i=0;i<len;i++){
+		printf("kelime:");
+		gets(veri[i].kelime);
+	}
+}
+
+void hesaplama(struct Kelime *veri,int len){
+	int i,sesli=0,sessiz=0,j;
+	for(j=0;j<len;j++){
+	
+	for(i=0;i<strlen(veri[j].kelime);i++){
+		if(veri[j].kelime[i]=='a' ||veri[j].kelime[i]=='e' ||veri[j].kelime[i]=='i' ||veri[j].kelime[i]=='o' ||veri[j].kelime[i]=='u'){
+			sesli++;
+		}
+		else if(veri[j].kelime[i]==' '){
+			sesli+=0;
+		}
+		else{
+			sessiz++;
+		}
+	
+}
+		veri[j].sesli=sesli;
+		veri[j].sessiz=sessiz;
+		veri[j].uzunluk=strlen(veri[j].kelime);
+		sesli=0;
+		sessiz=0;
+	}
+}
+
+
+
+
+
+void yazdir(struct Kelime *veri ,int len){
+	int i;
+	for(i=0;i<len;i++){
+			printf("Kelime:%s - Sesli:%d - Sessiz:%d - Uzunluk:%d\n",veri[i].kelime,veri[i].sesli,veri[i].sessiz,veri[i].uzunluk);
+	}
+}
+
+
+
+
+
+void benzerlik(struct Kelime *veri,int len){
+	char *gecici,gecici2[50],a='0';
+	char *eniyi,*ptr,*eniyi2;
+	int i,k,j,puan=0,max=0,uzunluk=0;
+	for(k=0;k<15;k++){
+	gecici=veri[k].kelime;
+	for (i=k;i<15;i++){
+		strcpy(gecici2,gecici);
+		for(j=0;j<strlen(gecici);j++){
+			
+			if(gecici[j]==veri[i].kelime[j]){
+				puan+=3;
+				gecici2[j]='0';
+				uzunluk+=1;
+			}	
+			else if(gecici[j]==veri[i].kelime[j+1] || gecici[j]==veri[i].kelime[j-1]){
+				if(j!=0 && puan!=3){
+				puan+=2; 
+				gecici2[j]='0';
+			}
+			}
+			else{
+				if(veri[i].kelime[j]!='\0'&& gecici2[j]!=a){
+					a=gecici2[j];
+				
+					ptr=strchr(veri[i].kelime,gecici2[j]);
+				if(ptr){
+					puan+=1;
+				}
+				else{
+					puan+=0;
+			
+				}
+			}
+			}
+			
+	}
+		if(uzunluk!=veri[k].uzunluk){
+		
+		if(puan>=max){
+			max=puan;
+			eniyi=gecici;
+			eniyi2=veri[i].kelime;
+		}
+	}
+		puan=0;
+		uzunluk=0;
+		ptr='\0';
+	
+}}
+	
+	printf("Birbirine en cok benzeyen kelimeler %s ve %s dir.\n",eniyi2,eniyi);
+}
+
+
+
+
+
