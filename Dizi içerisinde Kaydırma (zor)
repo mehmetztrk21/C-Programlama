@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int fonk(int *p,int *x){
+	
+int i,dizi[20];
+
+for(i=0;i<*x;i++){
+	dizi[i]=p[19-i];   //dizinin ilk elemanına p nin son elemanını ata.
+
+}
+
+for(i=*x-1;i>=0;i--){
+	printf("%d ",dizi[i]);        //yeni oluşturulan diziyi yazdırdık.
+    printf("- ");
+}
+for(i=0;i<20-*x;i++){
+	printf("%d ",p[i]);              //eski diizmizin geri kalan bölümünü yazdırdık.
+	if(i<19-*x)
+	printf("- ");
+}
+
+}
+
+int main(int argc, char *argv[]) {
+	int dizi[20],*p;
+	int x,i;
+
+	srand(time(NULL));
+for(i=0;i<20;i++){
+	dizi[i]=rand()%15;
+	printf("%d ",dizi[i]);
+	if(i!=19)             //en son sayıdan sonra - koymasın diye.
+	printf("- ");
+}	
+printf("\n");
+
+printf("bir sayi gir: ");  
+
+scanf("%d",&x);        //girilen sayı kadar elemanları sondan başa alır.
+	p=&x;
+fonk(dizi,p);
+
+}
