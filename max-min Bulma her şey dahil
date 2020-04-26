@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int toplam=0,max=0,min=100,i,j,maxs=0,mins=100,genelmax=0,genelmin=100,toplamg=0;
+	double ort=0,gort=0;
+	int dizi[3][3]={70,80,90,30,100,63,41,77,60};
+		for(i=0;i<3;i++){
+		for(j=0;j<3;j++){
+			printf("%d   ",dizi[i][j]);
+		} printf("\n");
+	}
+	printf("\n");
+	for(i=0;i<3;i++){
+		for(j=0;j<3;j++){
+			toplamg+=dizi[i][j];
+		
+			if(dizi[i][j]>max){
+				max=dizi[i][j];
+			}
+			if(dizi[i][j]<min){
+				min=dizi[i][j];
+			}
+			if(dizi[j][i]>maxs){
+				maxs=dizi[j][i];
+			}
+			if(dizi[j][i]<mins){
+				mins=dizi[j][i];
+			}
+			
+		}
+		gort=toplamg/3.0;
+		printf("%d . satir ortalama=%f\n",i+1,gort);
+		gort=0;
+		toplam+=toplamg;
+		toplamg=0;
+		if(maxs>genelmax)
+		genelmax=maxs;
+		if(mins<genelmin)
+		genelmin=mins;
+		printf("%d. satirin en buyuk elemani=%d\n",i+1,max);
+		printf("%d. satirin en kucuk elemani=%d\n",i+1,min);
+		printf("%d. sutunun en buyuk elemani=%d\n",i+1,maxs);
+		printf("%d. sutunun en kucuk elemani=%d\n",i+1,mins);
+		printf("\n");
+		mins=100;
+		maxs=0;
+		max=0;
+		min=100;
+		
+	}
+	ort=toplam/9.0;
+	printf("Genel ortalama=%f\n",ort);
+	printf("Notlardan en buyuk olani=%d\n",genelmax);
+	printf("Notlardan en kucuk olani=%d\n",genelmin);
+	
+	
+	return 0;
+}
