@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	char string[]="hello world";
+	int i;
+	printf("%s\n",string);
+	
+	for(i=0;i<strlen(string);i++)
+	printf("%c\n",string[i]);
+	
+	printf("\n");
+	i=0;
+	while(string[i]!='\0')
+	{
+		printf("%c\n",string[i]);
+		i++;
+	}
+	
+	int x = 1, y = 2, z[10];
+	z[0]=5;
+int *ip;		/* integer pointer*/
+
+ip = &x;		/* x in adresi  */
+y = *ip;		/* ip nin değeri */
+*ip = 0;		/* ip nin gösterdiği yere değer atama */
+ip = &z[0];
+printf("%d\n",*ip);
+printf("%p\n",ip);
+	
+	
+	int nums[] = {10,20,30,40,50,60,70,80};
+    int *a = nums;
+    int *b = a ;
+
+    printf("sizeof(int) = %d\n", sizeof(int)); 
+    printf("%p\n", a + 0);
+    printf("%p\n", a + 1);
+    printf("%p\n", a + 2);
+    printf("%d\n", *(b));
+    printf("%d\n", *(b+2));
+    printf("%d\n", *(b)+2);
+    printf("%p\n", b+1);
+
+	
+	return 0;
+}
