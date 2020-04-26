@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+void max(int k[10][10]);
+void min(int k[10][10]);             //dizinin ön tanıtımını yaptık.
+void ort(int k[10][10]);
+int main(int argc, char *argv[]) {
+	
+	int dizi[10][10];         
+	int i,j;
+	srand(time(NULL));
+	for(i=0;i<10;i++){                     
+		for(j=0;j<10;j++){
+			dizi[i][j]=rand()%100+1;                    
+			printf("%d   ",dizi[i][j]);                         //buraya kadar diziyi ekrana yazdırdık.
+		}
+		printf("\n");
+	}
+	
+	
+	max(dizi);                                        //burada diziyi fonksiyonlara gönderdik. İki boyutlu diziyi böyle yolluyoruz.
+	min(dizi);
+	ort(dizi);
+
+}
+	void max(int k[10][10]){                       
+		int i,j,t=0;                                 //max fonksiyonuna diziyi yolladık.
+		for(i=0;i<10;i++){
+			for(j=0;j<10;j++){
+				
+				if(k[i][j]>t){
+					t=k[i][j];
+				
+				}
+			}
+		}
+		printf("dizinin en buyuk degeri: %d",t);
+		printf("\n");
+			
+
+	}
+	void min(int k[10][10]){                              //min  fonksiyonuna diziyi yolladık.  iki boyutlu diziyi böyle alıyoruz.
+		int i,j,t=105;
+		for(i=0;i<10;i++){                 
+			for(j=0;j<10;j++){
+				
+				if(k[i][j]<t){
+					t=k[i][j];
+				
+				}
+			}
+		}
+		printf("dizinin en kucuk degeri: %d",t);
+			printf("\n");
+
+	}
+void ort(int k[10][10]){                                     //dizinin ortalama değerini yazdık.
+		int i,j,toplam=0;
+		for(i=0;i<10;i++){
+			for(j=0;j<10;j++){
+				
+				toplam+=k[i][j];
+			}
+		}
+		toplam=toplam/100;
+		printf("dizinin ortalama degeri: %d",toplam);
+			
+
+	}
+
+		getch();
+	
+	
+	
+	
+	
