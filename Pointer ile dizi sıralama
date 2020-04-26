@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <time.h>
+int fonk(int *dizi,int len){
+	int i,j,gecici,*min=dizi,max=0;
+	for(i=0;i<100;i++){
+	for(j=0;j<100;j++){
+		if(dizi[j]>dizi[j+1]){
+			gecici=dizi[j+1];
+			dizi[j+1]=dizi[j];
+			dizi[j]=gecici;
+		}
+	
+	}
+}
+	printf("\n");
+		printf("**** DUZENLENMIS HALI ****\n");
+for(i=0;i<100;i++){
+	printf("%d - ",dizi[i]);
+	if(dizi[i]>max){
+		max=dizi[i];
+	}
+}
+
+printf("\n");
+printf("min deger: %d adresi: %p",*min,min);
+printf("\n");
+printf("max deger: %d adresi: %p",max,&max);
+s
+}
+
+int main()
+{
+	printf("**** DIZINIZ ****\n");
+int dizi[100],i;
+for(i=0;i<100;i++){
+	dizi[i]=rand()%3000;
+	printf("%d - ",dizi[i]);
+}
+fonk(dizi,100);
+}
+
