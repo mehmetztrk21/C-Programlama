@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	int a,b,i;
+	int tutucu[10]={0,1,2,3,4,5,6,7,8,9}; //hediye alacaklar icin
+	int tutucu2[10]={0,1,2,3,4,5,6,7,8,9};   //hediye verecekler icin
+char isim[10][10]={"huseyin","murat","mehmet","metehan","fuat","kaan","melih","enes","bahadir","timucin"};   //string dizisi böyle tanımlanır.
+	srand(time(NULL));
+for(i=0;i<100;i++){                  //bu aralığı kafamıza göre verdik çünkü zaten indisler bitince program da bitecek.
+	a=rand()%10;         
+	b=rand()%10;
+	if(tutucu[a]!=100 && tutucu2[b]!=100 && a!=b){                //daha önce hediye alan ,hediye veren veya kendisine hediye alan kisileri engelledik.
+		printf("%s kisisi %s kisisine hediye alacak.",isim[a],isim[b]);
+		printf("\n");
+	
+	tutucu[a]=100;     //hediye alan kisiye 100 degerini atadık ki bir daha almasın.
+	tutucu2[b]=100;     //hediye verecek kisiye 100 degerini atadık ki birdaha vermesin.
+	}
+
+}
+	
+	getch();
+	return 0;
+}
