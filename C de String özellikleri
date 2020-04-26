@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main( void )
+{
+    const char *cp1 = "Bilgisayar";   //değiştirilemez veri tipi(const)
+    const char *cp2 = "sayar";
+    char *ret = strstr(cp1, cp2);  //cp1 içinde cp2 yi arıyor.
+
+    printf("%s karakter dizisinde bulunan dizi: %s, adresi: %p\n", cp1, ret, ret );
+
+}
+
+
+//                             STRİNGLER
+/*C de  string tip yoktur, karakter dizileri tanımlanarak string uygulamaları yapılır 
+char str [10]; // str, 10 karakterden oluşan bir dizidir
+char * str; // str belirtilmemiş uzunluktaki bir stringin başlangıcını gösterir
+Çok sayıda dize işlevine sahip bir string.h kütüphanesi vardır, hepsi karakter dizileri üzerinde çalışır ve şunları içerir:
+strcpy (s1, s2) - s2'yi s1'e kopyalar (son karakter olarak ‘\ 0’ dahil)
+strncpy (s1, s2, n) - aynı ancak yalnızca s2'ye kadar n kopyaya kadar kopyalar
+strcmp (s1, s2) - s1 <s2 ise negatif bir int, s1 = = s2 ise 0 ve s1> s2 ise pozitif bir int döndürür
+strncmp (s1, s2, n) - aynı ancak yalnızca n karakterle karşılaştırır
+strcat (s1, s2) - s2'yi s1'e birleştirir (bu s1'i değiştirir, ancak s2'yi değiştirmez)
+strncat (s1, s2, n) - aynı ancak yalnızca n karaktere kadar birleştirir
+strlen (s1) - s1 tamsayı uzunluğunu döndürür
+strchr (s1, ch) - s1'deki ilk ch oluşumuna bir işaretçi döndürür (veya ch yoksa NULL)
+strpbrk (s1, s2) - s1'de s2'deki bir karakterle eşleşen herhangi bir karakterin ilk oluşumuna (veya yok ise NULL) bir işaretçi döndürür
+strstr (s1, s2) - Fonksiyon başlangıç adresi s1 olan yazı içinde başlangıç adresi s2 olan yazıyı arar. Eğer aranılan yazı bulunursa fonksiyonun geri dönüş değeri bulunan yerin adresidir. Eğer yazı bulunmazsa fonksiyon NULL adresine geri döner. Fonksiyonu mystrstr ismiyle tanımlayınız.
+/*
